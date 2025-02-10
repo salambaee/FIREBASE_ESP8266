@@ -1,2 +1,1 @@
-# esp8266-firebase
-Development :)
+# ESP8266 Firebase Library
