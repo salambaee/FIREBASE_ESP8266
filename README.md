@@ -13,7 +13,7 @@ This library allows an ESP8266 microcontroller to send sensor data to a Firebase
    * ESP8266WiFi (included in the ESP8266 Core for Arduino, needs to be installed via Board Manager)
    * WiFiClientSecure (included in the ESP8266 Core for Arduino, needs to be installed via Board Manager)
    * ESP8266HTTPClient (included in the ESP8266 Core for Arduino, needs to be installed via Board Manager)
-   * ArduinoJson (included in this repository)
+   * ArduinoJson ([included in this repository](https://docs.arduino.cc/libraries/arduinojson/))
 
 ## Installation
 ### Linux
