@@ -46,5 +46,36 @@ Ensure your Firebase database rules allow writing data
 ```
 The data sent in this example is randomly generated. Replace it with actual sensor readings if needed.
 
+## Example
+```C
+#include <FIREBASE_ESP8266.h>
+#define WIFI_SSID "EXAMPLE"
+#define WIFI_PASSWORD "example"
+#define FIREBASE_HOST "https://data-sensor-EXAMPLE-default-EXAMPLE.firebaseio.com/"
+#define FIREBASE_PATH "/sensor.json"
+
+FIREBASE_ESP8266 FIREBASE_ESP8266(FIREBASE_HOST, FIREBASE_PATH, WIFI_SSID, WIFI_PASSWORD);
+
+void setup() {
+  Serial.begin(115200);
+  FIREBASE_ESP8266.connectWiFi();
+}
+
+void loop() {
+  int Sensor_1 = random(1, 20);
+  int Sensor_2 = random(2, 20);
+  int Sensor_3 = random(3, 20);
+  String keys[] = {"Sensor_1", "Sesnor_2", "Sensor_3"};
+  int values[] = {Sensor_1, Sensor_2, Sensor_3}
+  FIREBASE_ESP8266.sendData(keys, values, 1);
+}
+```
+* `#include <FIREBASE_ESP8266>` This line attemps to include a installed library
+* `#define WIFI_SSID "EXAMPLE"` and `#define WIFI_PASSWORD "example"` define the Wi_Fi network that the ESP8266 will connect to.
+* `#define FIREBASE_HOST` is the URL of the Firebase Realtime Database.
+* `#define FIREBASE_PATH` specifies the database path where data will be stored.
+* `FIREBASE_ESP8266 FIREBASE_ESP8266(FIREBASE_HOST, FIREBASE_PATH, WIFI_SSID, WIFI_PASSWORD);` This attempts to create an instance of FIREBASE_ESP8266.
+* `FIREBASE_ESP8266.connectWiFi();` attempts to connect the ESP8266 to the specified Wi-Fi.
+
 ## License
 This project is open-source and available under the MIT License
